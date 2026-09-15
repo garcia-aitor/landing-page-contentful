@@ -24,6 +24,10 @@ if (!data.value) {
         v-if="section.type === PAGE_SECTION_TYPE.hero"
         :section="section"
       />
+      <SectionBenefits
+        v-else-if="section.type === PAGE_SECTION_TYPE.sectionBenefits"
+        :section="section"
+      />
     </template>
   </main>
 </template>
