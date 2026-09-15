@@ -15,11 +15,13 @@ if (!data.value) {
     statusMessage: `Landing page not found for slug "${slug}"`,
   })
 }
+
+const page = data.value
 </script>
 
 <template>
   <main>
-    <template v-for="(section, index) in data.sections" :key="index">
+    <template v-for="(section, index) in page.sections" :key="index">
       <SectionHero
         v-if="section.type === PAGE_SECTION_TYPE.hero"
         :section="section"
