@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PAGE_SECTION_TYPE } from '../../shared/types/landing-page'
 import { getLandingPage } from '../../server/utils/getLandingPage'
 
 const slug = String(useRoute().params.slug ?? '')
@@ -17,5 +18,12 @@ if (!data.value) {
 </script>
 
 <template>
-  <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+  <main>
+    <template v-for="(section, index) in data.sections" :key="index">
+      <SectionHero
+        v-if="section.type === PAGE_SECTION_TYPE.hero"
+        :section="section"
+      />
+    </template>
+  </main>
 </template>
