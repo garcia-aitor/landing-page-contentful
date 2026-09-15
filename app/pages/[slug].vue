@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { PAGE_SECTION_TYPE } from '../../shared/types/landing-page'
-import { getLandingPage } from '../../server/utils/getLandingPage'
+import { PAGE_SECTION_TYPE } from '#shared/types/landing-page'
 
 const slug = String(useRoute().params.slug ?? '')
 
-const { data } = await useAsyncData(
-  `landing-page-${slug}`,
-  () => getLandingPage(slug),
-)
+const { data, error } = await useFetch(`/api/landing-pages/${slug}`)
 
 if (!data.value) {
   throw createError({
-    statusCode: 404,
+    statusCode: error.value?.statusCode ?? 404,
     statusMessage: `Landing page not found for slug "${slug}"`,
   })
 }
 
 const page = data.value
+
+useSeoMeta({
+  title: page.metaTitle,
+  description: page.metaDescription,
+})
 </script>
 
 <template>

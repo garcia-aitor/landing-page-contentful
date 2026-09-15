@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BenefitsSection } from '../../shared/types/landing-page'
+import type { BenefitsSection } from '#shared/types/landing-page'
 
 defineProps<{
   section: BenefitsSection

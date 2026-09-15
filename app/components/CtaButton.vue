@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Cta } from '../../shared/types/landing-page'
+import type { Cta } from '#shared/types/landing-page'
 
 defineProps<{
   cta: Cta

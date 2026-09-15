@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CtaSection } from '../../shared/types/landing-page'
+import type { CtaSection } from '#shared/types/landing-page'
 
 defineProps<{
   section: CtaSection

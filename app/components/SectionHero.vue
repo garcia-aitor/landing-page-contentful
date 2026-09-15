@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HeroSection } from '../../shared/types/landing-page'
+import type { HeroSection } from '#shared/types/landing-page'
 
 defineProps<{
   section: HeroSection

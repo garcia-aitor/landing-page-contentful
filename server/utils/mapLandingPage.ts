@@ -1,4 +1,4 @@
-import { PAGE_SECTION_TYPE, type Cta, type LandingPage, type PageSection } from '../../shared/types/landing-page'
+import { PAGE_SECTION_TYPE, type Cta, type LandingPage, type PageSection } from '#shared/types/landing-page'
 
 type ContentfulEntry = {
   sys?: { contentType?: { sys?: { id?: string } } }
