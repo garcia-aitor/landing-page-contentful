@@ -30,6 +30,10 @@ const page = data.value
         v-else-if="section.type === PAGE_SECTION_TYPE.sectionBenefits"
         :section="section"
       />
+      <SectionCta
+        v-else-if="section.type === PAGE_SECTION_TYPE.ctaSection"
+        :section="section"
+      />
     </template>
   </main>
 </template>
