@@ -5,10 +5,11 @@ export const PAGE_SECTION_TYPE = {
 } as const;
 
 export type Cta = {
-  label: string;
-  url?: string;
-  openInNewTab: boolean;
-};
+  label: string
+  url?: string
+  hubspotFormId?: string
+  openInNewTab: boolean
+}
 
 export type HeroSection = {
   type: typeof PAGE_SECTION_TYPE.hero

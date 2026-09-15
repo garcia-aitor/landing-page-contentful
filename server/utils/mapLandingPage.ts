@@ -25,13 +25,17 @@ function asEntry(value: unknown): ContentfulEntry | undefined {
 function mapCta(value: unknown): Cta | undefined {
   const entry = asEntry(value)
   const label = text(entry?.fields?.buttonLabel)
-  if (!label) {
+  const url = text(entry?.fields?.url)
+  const hubspotFormId = text(entry?.fields?.hubspotFormId)
+
+  if (!label || (!url && !hubspotFormId)) {
     return undefined
   }
 
   return {
     label,
-    url: text(entry?.fields?.url),
+    url,
+    hubspotFormId,
     openInNewTab: entry?.fields?.openInNewTab === true,
   }
 }

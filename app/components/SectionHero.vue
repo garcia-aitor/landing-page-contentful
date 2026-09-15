@@ -11,15 +11,7 @@ defineProps<{
     <div class="hero__inner">
       <h1>{{ section.headline }}</h1>
       <p v-if="section.supportingCopy">{{ section.supportingCopy }}</p>
-      <a
-        v-if="section.cta"
-        class="hero__cta"
-        :href="section.cta.url || '#'"
-        :target="section.cta.openInNewTab ? '_blank' : undefined"
-        :rel="section.cta.openInNewTab ? 'noreferrer' : undefined"
-      >
-        {{ section.cta.label }}
-      </a>
+      <CtaButton v-if="section.cta" :cta="section.cta" />
     </div>
   </header>
 </template>
@@ -51,20 +43,6 @@ p {
   color: rgba(255, 255, 255, 0.72);
   font-size: 1rem;
   line-height: 1.65;
-}
-
-.hero__cta {
-  display: inline-block;
-  padding: 0.8rem 1.4rem;
-  border-radius: 0.5rem;
-  background: #00e39a;
-  color: #032016;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.hero__cta:hover {
-  background: #2affb3;
 }
 
 @media (min-width: 768px) {
