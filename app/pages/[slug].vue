@@ -22,7 +22,7 @@ useSeoMeta({
 
 <template>
   <main>
-    <template v-for="(section, index) in page.sections" :key="index">
+    <template v-for="section in page.sections" :key="section.id">
       <SectionHero
         v-if="section.type === PAGE_SECTION_TYPE.hero"
         :section="section"

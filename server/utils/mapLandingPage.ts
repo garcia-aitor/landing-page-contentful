@@ -1,7 +1,7 @@
 import { PAGE_SECTION_TYPE, type Cta, type LandingPage, type LandingPageLink, type PageSection } from '#shared/types/landing-page'
 
 type ContentfulEntry = {
-  sys?: { contentType?: { sys?: { id?: string } } }
+  sys?: { id?: string; contentType?: { sys?: { id?: string } } }
   fields?: Record<string, unknown>
 }
 
@@ -51,9 +51,10 @@ export function mapLandingPage(value: unknown): LandingPage | undefined {
 
   for (const rawSection of Array.isArray(page?.fields?.pageSections) ? page.fields.pageSections : []) {
     const section = asEntry(rawSection)
+    const id = text(section?.sys?.id)
     const type = section?.sys?.contentType?.sys?.id
     const fields = section?.fields
-    if (!type || !fields) {
+    if (!id || !type || !fields) {
       continue
     }
 
@@ -64,6 +65,7 @@ export function mapLandingPage(value: unknown): LandingPage | undefined {
       }
 
       sections.push({
+        id,
         type: PAGE_SECTION_TYPE.hero,
         headline,
         supportingCopy: text(fields.supportingCopy),
@@ -93,6 +95,7 @@ export function mapLandingPage(value: unknown): LandingPage | undefined {
       }
 
       sections.push({
+        id,
         type: PAGE_SECTION_TYPE.sectionBenefits,
         heading: text(fields.sectionHeading),
         subheading: text(fields.sectionSubheading),
@@ -108,6 +111,7 @@ export function mapLandingPage(value: unknown): LandingPage | undefined {
       }
 
       sections.push({
+        id,
         type: PAGE_SECTION_TYPE.ctaSection,
         headline,
         supportingCopy: text(fields.supportingCopy),

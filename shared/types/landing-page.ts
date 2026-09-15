@@ -12,6 +12,7 @@ export type Cta = {
 }
 
 export type HeroSection = {
+  id: string
   type: typeof PAGE_SECTION_TYPE.hero
   headline: string
   supportingCopy?: string
@@ -24,6 +25,7 @@ export type Benefit = {
 };
 
 export type BenefitsSection = {
+  id: string
   type: typeof PAGE_SECTION_TYPE.sectionBenefits;
   heading?: string;
   subheading?: string;
@@ -31,6 +33,7 @@ export type BenefitsSection = {
 };
 
 export type CtaSection = {
+  id: string
   type: typeof PAGE_SECTION_TYPE.ctaSection
   headline: string
   supportingCopy?: string
