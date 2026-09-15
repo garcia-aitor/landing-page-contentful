@@ -1,4 +1,4 @@
-import { PAGE_SECTION_TYPE, type Cta, type LandingPage, type PageSection } from '#shared/types/landing-page'
+import { PAGE_SECTION_TYPE, type Cta, type LandingPage, type LandingPageLink, type PageSection } from '#shared/types/landing-page'
 
 type ContentfulEntry = {
   sys?: { contentType?: { sys?: { id?: string } } }
@@ -121,5 +121,18 @@ export function mapLandingPage(value: unknown): LandingPage | undefined {
     metaTitle: text(page?.fields?.metaTitle),
     metaDescription: text(page?.fields?.metaDescription),
     sections,
+  }
+}
+
+export function mapLandingPageLink(value: unknown): LandingPageLink | undefined {
+  const entry = asEntry(value)
+  const slug = text(entry?.fields?.slug)
+  if (!slug) {
+    return undefined
+  }
+
+  return {
+    slug,
+    title: text(entry?.fields?.metaTitle) ?? slug,
   }
 }

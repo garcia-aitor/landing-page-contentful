@@ -45,3 +45,9 @@ export type LandingPage = {
   metaDescription?: string;
   sections: PageSection[];
 };
+
+/** Enough to link to a landing page, without loading its sections. */
+export type LandingPageLink = {
+  slug: string
+  title: string
+}
