@@ -38,8 +38,6 @@ The page never talks to Contentful. Data flows:
 
 ## Contentful model
 
-Reusable types, not a flat `benefit1Title` / `benefit2Title` page.
-
 
 | Type              | Role                                                                                          |
 | ----------------- | --------------------------------------------------------------------------------------------- |
